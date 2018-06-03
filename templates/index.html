@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    <div class="modal fade" id="image-preview" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Preview Image</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <img class="image-responsive" id="image" style="max-width: 450px;" src="" alt="Nexus">
+            </div>
+            <div class="modal-footer">
+              <a class="btn btn-success" id="download" href="" target="_blank"><i class="fas fa-download"></i> Download</a>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div class="jumbotron text-center">
+        <h1>InstaPic</h1>
+        <p>InstaPic is an easy to use Instagram Downloader.</p>
+        <p>This will not work for private accounts.</p>
+        <hr>
+        <div class="input-group mb-1">
+            <input type="text" class="form-control" id="link" placeholder="https://www.instagram.com/p/Bh10ctXlIHK">
+            <div class="input-group-append">
+                <button class="btn btn-primary" id="go"><i class="fas fa-sign-in-alt"></i> Go</button>
+            </div>
+        </div>
+
+        <p style="text-align: left; font-style: italic;">Tip: Link to someones account if you want to download their profile pic.</p>
+    </div>
+{% endblock %}
