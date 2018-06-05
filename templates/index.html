@@ -5,24 +5,43 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Preview Image</h5>
+              <h5 class="modal-title" id="exampleModalLabel">Image Preview</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body">
-              <img class="image-responsive" id="image" style="max-width: 450px;" src="" alt="Nexus">
+              <img class="image-responsive" id="image" style="width: 100%; height: auto; margin:0 auto;" src="">
             </div>
             <div class="modal-footer">
-              <a class="btn btn-success" id="download" href="" target="_blank"><i class="fas fa-download"></i> Download</a>
+              <a class="btn btn-success" id="image-download" href="" target="_blank"><i class="fas fa-download"></i> Download</a>
             </div>
           </div>
         </div>
     </div>
 
+    <div class="modal fade" id="video-preview" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Video Preview</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <video id="video" style="width: 100%; height: auto; margin:0 auto; frameborder:0;" src="" controls></video>
+          </div>
+          <div class="modal-footer">
+            <a class="btn btn-success" id="video-download" href="" target="_blank"><i class="fas fa-download"></i> Download</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="jumbotron text-center">
         <h1>InstaPic</h1>
-        <p>InstaPic is an easy to use Instagram Downloader.</p>
+        <p>InstaPic is an easy to use Instagram Photo & Video downloader.</p>
         <p>This will not work for private accounts.</p>
         <hr>
         <div class="input-group mb-1">
