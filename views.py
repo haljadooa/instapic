@@ -7,3 +7,4 @@ def index():
     compressed = compress(render_template('index.html'))
     return compressed
 
+

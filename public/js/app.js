@@ -37,6 +37,13 @@ $(document).ready(function() {
         
                             // display preview window
                             $("#video-preview").modal('show')
+
+                            // pause the video player when the modal closes
+                            $("#video-preview").on("hide.bs.modal", function() {
+                                video = document.getElementById('video')
+
+                                video.pause();
+                            });
                         }    
                     } else {
                         alert('An unknown error occured');
