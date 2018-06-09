@@ -1,4 +1,4 @@
-import requests
+import requests, re
 from bs4 import BeautifulSoup
 from flask import abort, jsonify
 from htmlmin.minify import html_minify
@@ -30,7 +30,27 @@ def extract_url(post_url):
 
             return jsonify({"data": {"type": "video", "url": video_url}})
 
+def extract_json(post_url):
+    response = requests.get(post_url)
+
+    # check if the request was successful
+    if response.status_code == 200:
+        # html document
+        body = response.text
+
+        # pass the enitre html document to BeautifulSoup
+        soup = BeautifulSoup(body, 'html.parser')
+
+        # pick out every script tag the type "text/javascript"
+        scrTag = soup.find_all('script', {'type': 'text/javascript'})
+
+        # regex to filter everything outside the json object
+        pattern = re.compile(r"[{].*[}]")
+
+        # run the regex expression 
+        for json in pattern.findall(str(scrTag[3])):
+            return json
+
 # compress html
 def compress(data):
     return html_minify(data)
-
