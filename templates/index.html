@@ -11,10 +11,34 @@
               </button>
             </div>
             <div class="modal-body">
-              <img class="image-responsive" id="image" style="width: 100%; height: auto; margin:0 auto;" src="">
+              <img class="image-responsive content-preview" id="image" src="">
             </div>
             <div class="modal-footer">
               <a class="btn btn-success" id="image-download" href="" target="_blank"><i class="fas fa-download"></i> Download</a>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="album-preview" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Album Preview</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <img class="image-responsive content-preview" id="album-image" src="">
+            </div>
+            <div class="modal-footer">
+                <div class="btn-group" role="group">
+                    <button class="btn btn-secondary cr-notallowed" id="backward" disabled><i class="fas fa-arrow-left"></i></button>
+                    <button class="btn btn-secondary cr-notallowed" id="forward" disabled><i class="fas fa-arrow-right"></i></button>
+                </div>
+                <!--<button class="btn btn-info" disabled style="cursor: not-allowed;"><i class="fas fa-download"></i> Download All</button>-->
+                <a class="btn btn-success" id="album-image-download" href="" target="_blank"><i class="fas fa-download"></i> Download</a>
             </div>
           </div>
         </div>
@@ -30,7 +54,7 @@
             </button>
           </div>
           <div class="modal-body">
-            <video id="video" style="width: 100%; height: auto; margin:0 auto; frameborder:0;" src="" controls></video>
+            <video class="content-preview" id="video" style="frameborder:0;" src="" controls></video>
           </div>
           <div class="modal-footer">
             <a class="btn btn-success" id="video-download" href="" target="_blank"><i class="fas fa-download"></i> Download</a>
@@ -45,11 +69,19 @@
         <p>This will not work for private accounts.</p>
         <hr>
         <div class="input-group mb-1">
+            <div class="input-group-prepend">
+                <div class="input-group-text">
+                    <input type="checkbox" class="cr-notallowed" id="isAlbum" disabled>
+                    <label class="cr-notallowed" for="isAlbum" style="margin: 0 auto;">&nbsp;Album</label>
+                </div>
+            </div>
             <input type="text" class="form-control" id="link" placeholder="https://www.instagram.com/p/Bh10ctXlIHK">
             <div class="input-group-append">
                 <button class="btn btn-primary" id="go"><i class="fas fa-sign-in-alt"></i> Go</button>
             </div>
         </div>
-        <p style="text-align: left; font-style: italic;">Tip: Link to someones account if you want to download their profile pic.</p>
+        <p class="tip">Tip: Link to someones account if you want to download their profile pic.</p>
     </div>
+
+    
 {% endblock %}
