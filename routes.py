@@ -1,6 +1,6 @@
 from app import app
-from flask import send_from_directory, request, abort
-from utils import extract_url, extract_json
+from flask import send_from_directory, request, abort, render_template
+from utils import extract
 
 # serve static files
 @app.route('/public/<path:filename>')
@@ -16,12 +16,12 @@ def download():
         is_album = int(request.args.get('album'))
 
         if is_album == 1:
-            response = extract_json(post_url)
+            response = extract(post_url, isAlbum=True)
 
             return response
         else:    
-            response = extract_url(post_url)
+            response = extract(post_url, isAlbum=False)
 
-            return response   
+            return response
     else:
         abort(405)

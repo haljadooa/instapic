@@ -22,8 +22,8 @@ $(document).ready(function() {
                         // check if the request was successful
                         if (response.status == 200) {
 
-                            let content_url = response.data.data.url,
-                                content_type = response.data.data.type
+                            let content_url = response.data.url,
+                                content_type = response.data.type
 
                             // check if the returned content is a photo or a video
                             if (content_type == "image") {
@@ -61,29 +61,7 @@ $(document).ready(function() {
                         
                         // check if the request was successful
                         if(response.status == 200) {
-                            
-                            // JSON object sent by the server
-                            let data = response.data.entry_data.PostPage[0].graphql.shortcode_media,
-                                length = data.edge_sidecar_to_children.edges.length
-                                i = 0
-                            
-                            // Array to store links
-                            // of every photo in the album
-                            let photos = []
-
-                            // cycle through JSON object
-                            // and strip the image URLs
-                            for(i=0; i < length; i++) {
-                                // push url to array
-                                photos.push(data.edge_sidecar_to_children.edges[i].node.display_url);
-                            }
-
-                            $("#album-image").attr("src", photos[0])
-
-                            $("#album-image-download").attr("href", photos[0])
-
-                            $("#album-preview").modal('show');
-
+                            console.log(response.data)
                         }
                     }).catch(function(error){
                         console.error(error);
